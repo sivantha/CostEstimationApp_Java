@@ -13,12 +13,12 @@ public class Consumable{
     }
 
     public void setName(int consumableNumber) {
-        System.out.println("Enter a name for the consumable no. " + consumableNumber);
+        System.out.println("\nEnter a name for the Consumable number " + consumableNumber);
         this.name = keyboard.nextLine();
     }
 
     public void setCost(int consumableNumber) {
-        System.out.println("Enter the cost for the consumable no. " + consumableNumber);
+        System.out.println("\nEnter the cost for the Consumable number " + consumableNumber);
         this.cost = keyboard.nextDouble();
     }
     

@@ -17,31 +17,31 @@ public class Payment{
         this.setCost(gatewayNumber);
     }
 
-    public void setName(int serverNumber) {
-        System.out.println("Enter a name for the " + serverNumber + "server:");
+    public void setName(int gatewayNumber) {
+        System.out.println("\nEnter a name for the Payment gateway number " + gatewayNumber);
         this.name = keyboard.nextLine();
     }
 
     public void setCost(int gatewayNumber) {
-        System.out.println("Select the payment scheme for the " + gatewayNumber + "gateway");
+        System.out.println("\nSelect the payment scheme for the Payment gateway number " + gatewayNumber);
         System.out.println("1 - Yearly");
         System.out.println("2 - Monthly");
         final int scheme = keyboard.nextInt();
         switch (scheme) {
             case 1:
-                System.out.println("Enter the yearly cost for the gateway:");
+                System.out.println("\nEnter the yearly cost for the Payment gateway number " + gatewayNumber);
                 final double costYear = keyboard.nextDouble();
                 this.cost = getPerHourCostFromYear(costYear);
                 break;
                 
             case 2:
-                System.out.println("Enter the monthly cost for this gateway:");
+                System.out.println("\nEnter the monthly cost for the Payment gateway number " + gatewayNumber);
                 final double costMonth = keyboard.nextDouble();
                 this.cost = getPerHourCostFromMonth(costMonth);
                 break;
         
             default:
-                System.out.println("Invalid entry. Try again..");
+                System.out.println("\nInvalid entry. Try again..");
                 this.setCost(gatewayNumber);
                 break;
         }

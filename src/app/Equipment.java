@@ -11,21 +11,22 @@ public class Equipment{
     public Equipment(int equipmentNumber) {
         this.setName(equipmentNumber);
         this.setCost(equipmentNumber);
+        this.setUnits(equipmentNumber);
     }
 
     public void setName(int equipmentNumber) {
-        System.out.println("Enter a name for the " + equipmentNumber + "equipment:");
+        System.out.println("\nEnter a name for the Equipment number " + equipmentNumber);
         this.name = keyboard.nextLine();
     }
 
     public void setCost(int equipmentNumber) {
-        System.out.println("Enter the cost for the " + equipmentNumber + "equipment:");
+        System.out.println("\nEnter the cost for the Equipment number " + equipmentNumber);
         this.cost = keyboard.nextDouble();
     }
 
     public void setUnits(int equipmentNumber) {
-        System.out.println("Enter no. of units of equipment no." + equipmentNumber);
-        this.cost = keyboard.nextDouble();
+        System.out.println("\nEnter no. of units of the Equipment number " + equipmentNumber);
+        this.units = keyboard.nextInt();
     }
 
     public String getName(){

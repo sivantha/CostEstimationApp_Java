@@ -13,30 +13,30 @@ public class Server{
     }
 
     public void setName(int serverNumber) {
-        System.out.println("Enter a name for the " + serverNumber + "server:");
+        System.out.println("\nEnter a name for the server number " + serverNumber);
         this.name = keyboard.nextLine();
     }
 
     public void setCost(int serverNumber) {
-        System.out.println("Select the payment scheme for the server no. " + serverNumber);
+        System.out.println("\nSelect the payment scheme for the server number " + serverNumber);
         System.out.println("1 - Yearly");
         System.out.println("2 - Monthly");
         final int scheme = keyboard.nextInt();
         switch (scheme) {
             case 1:
-                System.out.println("Enter the yearly cost for the server no. " + serverNumber);
+                System.out.println("\nEnter the yearly cost for the server number " + serverNumber);
                 double costYear = keyboard.nextDouble();
                 this.cost = getPerHourCostFromYear(costYear);
                 break;
                 
             case 2:
-                System.out.println("Enter the monthly cost for the server no. " + serverNumber);
+                System.out.println("\nEnter the monthly cost for the server number " + serverNumber);
                 double costMonth = keyboard.nextDouble();
                 this.cost = getPerHourCostFromMonth(costMonth);
                 break;
         
             default:
-                System.out.println("Invalid entry. Try again..");
+                System.out.println("\nInvalid entry. Try again..");
                 this.setCost(serverNumber);
                 break;
         }

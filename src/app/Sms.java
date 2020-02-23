@@ -13,12 +13,12 @@ public class Sms{
     }
 
     public void setName(int gatewayNumber) {
-        System.out.println("Enter a name for the " + gatewayNumber + "gateway:");
+        System.out.println("\nEnter a name for the SMS gateway number " + gatewayNumber);
         this.name = keyboard.nextLine();
     }
 
     public void setCost(int gatewayNumber) {
-        System.out.println("Enter the cost for the " + gatewayNumber + "gateway:");
+        System.out.println("\nEnter the cost for the SMS gateway number " + gatewayNumber);
         this.cost = keyboard.nextDouble();
     }
     
