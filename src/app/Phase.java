@@ -27,13 +27,13 @@ public class Phase {
     }
 
     public void setMinTime() {
-        System.out.println("\nEnter the minimum time (in hours) need for the project in working hours:");
+        System.out.println("\nEnter the minimum time (in hours) need for this phase in working hours:");
         System.out.println("(Consider there is only 8 working hours per day)");
         this.minTime = keyboard.nextInt();
     }
 
     public void setMaxTime() {
-        System.out.println("\nEnter the maximum time (in hours) need for the project in working hours:");
+        System.out.println("\nEnter the maximum time (in hours) need for this phase in working hours:");
         System.out.println("(Consider there is only 8 working hours per day)");
         this.maxTime = keyboard.nextInt();
     }
@@ -82,9 +82,9 @@ public class Phase {
 
             switch (type) {
                 case 1:
-                    System.out.println("Server");
+                    System.out.println("Servers");
                     System.out.println("===============================================");
-                    System.out.println("No. of servers needed:");
+                    System.out.println("No. of SERVERS needed:");
                     int numServers = keyboard.nextInt();
                     this.serverArray = new Server[numServers];
                     for(int i=0; i<numServers; i++){
@@ -93,36 +93,69 @@ public class Phase {
                     break;
 
                 case 2:
-                    System.out.println("SMS");
+                    System.out.println("SMS Gateways");
                     System.out.println("===============================================");
-                    System.out.println("No. of servers needed:");
+                    System.out.println("No. of SMS GATEWAYS needed:");
+                    int numSms = keyboard.nextInt();
+                    this.smsArray = new Sms[numSms];
+                    for(int i=0; i<numSms; i++){
+                        smsArray[i] = new Sms(i+1);
+                    }
                     break;
 
                 case 3:
-                    System.out.println("Payment");
+                    System.out.println("Payment Gateways");
                     System.out.println("===============================================");
-                    System.out.println("No. of servers needed:");
+                    System.out.println("No. of PAYMENT GATEWAYS needed:");
+                    int numPayments = keyboard.nextInt();
+                    this.paymentArray = new Payment[numPayments];
+                    for(int i=0; i<numPayments; i++){
+                        paymentArray[i] = new Payment(i+1);
+                    }
                     break;
                     
                 case 4:
-                    //Subs
+                    System.out.println("Subscriptions");
+                    System.out.println("===============================================");
+                    System.out.println("No. of SUBSCRIPTIONS needed:");
+                    int numSubscriptions = keyboard.nextInt();
+                    this.subscriptionArray = new Subscription[numSubscriptions];
+                    for(int i=0; i<numSubscriptions; i++){
+                        subscriptionArray[i] = new Subscription(i+1);
+                    }
                     break;
 
                 case 5:
-                    //Equip
+                    System.out.println("Equipments");
+                    System.out.println("===============================================");
+                    System.out.println("No. of types of EQUIPMENTS:");
+                    int numEquipments = keyboard.nextInt();
+                    this.equipmentArray = new Equipment[numEquipments];
+                    for(int i=0; i<numEquipments; i++){
+                        equipmentArray[i] = new Equipment(i+1);
+                    }
                     break;
 
                 case 6:
-                    //Cons
+                    System.out.println("Consumables");
+                    System.out.println("===============================================");
+                    System.out.println("No. of types of CONSUMABLES:");
+                    int numConsumables = keyboard.nextInt();
+                    this.consumableArray = new Consumable[numConsumables];
+                    for(int i=0; i<numConsumables; i++){
+                        consumableArray[i] = new Consumable(i+1);
+                    }
                     break;
             
                 default:
-                    //Error
+                    System.out.println("You have entered an invalid number..");
                     break;
             }
 
-            System.out.println("Do you want to add more(Y/N)?");
+            System.out.println("Do you want to add again(Y/N)?");
             String userInput = keyboard.nextLine();
+            //Duplicated to avoid a exception error
+            userInput = keyboard.nextLine();
             if (userInput.charAt(0)=='y' || userInput.charAt(0)=='Y') {
                 shouldLoop = true;
             }

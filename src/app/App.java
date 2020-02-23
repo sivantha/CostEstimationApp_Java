@@ -73,11 +73,18 @@ public class App{
             }
             System.out.println("Do you want to add more phases(Y/N)?");
             String userRes = keyboard.nextLine();
+            //Duplicated to avoid a exception error
+            userRes = keyboard.nextLine();
             if (userRes.charAt(0)=='y' || userRes.charAt(0)=='Y') {
                 shouldLoop = true;
             }
             else{
                 shouldLoop = false;
+                int totalPhases = phaseArray.size();
+                String[] phaseName = new String[totalPhases];
+                for( int i=0; i<totalPhases; i++){
+                    phaseName[i] = "Cost of ";
+                }
             }
         }
         keyboard.close();

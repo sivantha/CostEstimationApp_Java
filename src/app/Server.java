@@ -9,7 +9,7 @@ public class Server{
 
     public Server(int serverNumber) {
         this.setName(serverNumber);
-        this.setCost();
+        this.setCost(serverNumber);
     }
 
     public void setName(int serverNumber) {
@@ -17,38 +17,38 @@ public class Server{
         this.name = keyboard.nextLine();
     }
 
-    public void setCost() {
-        System.out.println("Select the payment scheme:");
+    public void setCost(int serverNumber) {
+        System.out.println("Select the payment scheme for the server no. " + serverNumber);
         System.out.println("1 - Yearly");
         System.out.println("2 - Monthly");
         final int scheme = keyboard.nextInt();
         switch (scheme) {
             case 1:
-                System.out.println("Enter the yearly cost for this server:");
-                final double costYear = keyboard.nextDouble();
+                System.out.println("Enter the yearly cost for the server no. " + serverNumber);
+                double costYear = keyboard.nextDouble();
                 this.cost = getPerHourCostFromYear(costYear);
                 break;
                 
             case 2:
-                System.out.println("Enter the monthly cost for this server:");
-                final double costMonth = keyboard.nextDouble();
+                System.out.println("Enter the monthly cost for the server no. " + serverNumber);
+                double costMonth = keyboard.nextDouble();
                 this.cost = getPerHourCostFromMonth(costMonth);
                 break;
         
             default:
                 System.out.println("Invalid entry. Try again..");
-                this.setCost();
+                this.setCost(serverNumber);
                 break;
         }
     }
 
-    private double getPerHourCostFromYear(final double costYear){
+    private double getPerHourCostFromYear(double costYear){
         double cost;
         cost = (costYear/240)/8.0;
         return cost;
     }
     
-    private double getPerHourCostFromMonth(final double costMonth){
+    private double getPerHourCostFromMonth(double costMonth){
         double cost;
         cost = (costMonth/20)/8.0;
         return cost;
