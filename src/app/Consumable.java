@@ -18,8 +18,14 @@ public class Consumable{
     }
 
     public void setCost(int consumableNumber) {
-        System.out.println("\nEnter the cost for the Consumable number " + consumableNumber);
-        this.cost = keyboard.nextDouble();
+        System.out.println("\nEnter the monthly cost for the Consumable number " + consumableNumber);
+        this.cost = getPerHourCostFromMonth(keyboard.nextDouble());
+    }
+
+    private double getPerHourCostFromMonth(double costMonth){
+        double cost;
+        cost = (costMonth/20)/8.0;
+        return cost;
     }
     
     public String getName(){

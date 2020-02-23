@@ -76,15 +76,21 @@ public class App{
                     }
                     //consumables
                     for(int p=0; p<numConsumable; p++){
-                        phaseString = phaseString + "+" + decimal.format(phase.consumableArrayList.get(p).getCost())  + " ";
+                        phaseString = phaseString + "+" + decimal.format(phase.consumableArrayList.get(p).getCost() + "(");
+                        for(int r=0; r<numEmployee; r++){
+                            if(r==0)
+                                phaseString = phaseString + "E" + (r+1) + " ";
+                            else
+                                phaseString = phaseString + "+ E" + (r+1) + " ";
+                        }
+                        phaseString = phaseString + ")(T" + (i+1) + ") ";
                     }
-
                     System.out.println(phaseString);
                     System.out.println("\nConstraints");
                     for(int q=0; q<numEmployee; q++){
                         System.out.printf("%5d  <=   E%d  <=  %-5d\n", phase.minEmp[q], (q+1), phase.maxEmp[q]); 
                     }
-                    System.out.printf("%5d  <=   T%d   <=  %-5d\n", minTime, i, maxTime);
+                    System.out.printf("%5d  <=   T%d   <=  %-5d\n", minTime, (i+1), maxTime);
                 }
             }
         }
