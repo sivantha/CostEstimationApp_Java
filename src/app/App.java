@@ -35,6 +35,8 @@ public class App{
                 int totalPhases = phaseArray.size();
                 for( int i=0; i<totalPhases; i++){
                     Phase phase = phaseArray.get(i);
+                    int maxTime = phase.getMaxTime();
+                    int minTime = phase.getMinTime();
                     String name = phase.getName();
                     int numEmployee = phase.getNoOfTypes();
                     int numServer = phase.serverArrayList.size();
@@ -45,7 +47,8 @@ public class App{
                     int numConsumable = phase.consumableArrayList.size();
 
                     System.out.println("\n\nPhase " + (i+1) + " - " + name);
-                    System.out.println("----------------------------------------");
+                    System.out.println("----------------------------------------\n");
+                    System.out.println("Objective Function");
                     String phaseString = "Cost = ";
                     //human
                     for(int j=0; j<numEmployee; j++){
@@ -77,8 +80,11 @@ public class App{
                     }
 
                     System.out.println(phaseString);
-
-
+                    System.out.println("\nConstraints");
+                    for(int q=0; q<numEmployee; q++){
+                        System.out.printf("%5d  <=   E%d  <=  %-5d\n", phase.minEmp[q], (q+1), phase.maxEmp[q]); 
+                    }
+                    System.out.printf("%5d  <=   T%d   <=  %-5d\n", minTime, i, maxTime);
                 }
             }
         }
